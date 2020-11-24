@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import Form from "./components/Form" ;
+import TableContent from "./components/TableContent" ;
+import React, {useState} from 'react' ;
+import "./App.css" ;
 
 function App() {
+  const [inputSearch, setInputSearch] = useState("") ;
+  const [inputCompany, setInputCompany] = useState("") ;
+  const [inputLocation, setInputLocation] = useState("") ;
+  let [tableContent, setTableContent] = useState([]) ;
+
+  const inputSearchHandler = (e) => {
+    e.preventDefault() ;
+    setInputSearch(e.target.value) ;
+  }
+
+  if(inputSearch.length > 0){
+    tableContent = tableContent.filter((tableRow) => {
+      return tableRow.company.toLocaleLowerCase().match(inputSearch.toLocaleLowerCase()) ;
+    })
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+
+      <header>
+        <h3>Job Portal</h3>
+        <input value={inputSearch} onChange={inputSearchHandler} placeholder="Search"/>
       </header>
+
+      <Form inputLocation = {inputLocation} inputCompany = {inputCompany} tableContent = {tableContent} setTableContent = {setTableContent} setInputCompany={setInputCompany} setInputLocation={setInputLocation} />
+      
+      <TableContent tableContent = {tableContent} setTableContent = {setTableContent} />
+
     </div>
-  );
+  ) ;
 }
 
 export default App;
