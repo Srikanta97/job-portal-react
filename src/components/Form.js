@@ -22,12 +22,20 @@ const Form = ({inputCompany, inputLocation, tableContent, setTableContent, setIn
         setInputCompany("") ;
         setInputLocation("") ;
     }
+
+    const deleteHandler = (e) => {
+        e.preventDefault() ;
+        setTableContent([]) ;
+    }
     return(
         <form>
             <input placeholder="Name of the Company" value={inputCompany} type="text" className="td-company" onChange = {inpCompanyHandler}/>
             <input placeholder="Location" value={inputLocation} type="text" className="td-location" onChange = {inpLocationHandler} />
-            <button className="td-button" type="submit" onClick = {submitHandler}>
+            <button style = {{backgroundColor: "#26ae60"}} type="submit" onClick = {submitHandler}>
                 Add
+            </button>
+            <button style = {{backgroundColor: "#D63031"}} type="submit" onClick = {deleteHandler}>
+                Delete All
             </button>
         </form>
     );

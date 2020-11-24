@@ -24,11 +24,11 @@ const TableRows = ({company, location, tableContent, setTableContent, tableRow }
             </td>
             <td>
                 {vacancy}
-                <button onClick = {increaseValue}>+</button>
-                <button onClick = {decreaseValue}>-</button>
+                <button style = {{backgroundColor:"#777777"}} onClick = {increaseValue}>+</button>
+                <button style = {{backgroundColor:"#777777"}} onClick = {decreaseValue}>-</button>
             </td>
             <td>
-                <button onClick = {deleteHandler} style = {{backgroundColor:"#E44236"}}>D</button>
+                <button onClick = {deleteHandler} style = {{backgroundColor:"#D63031"}}>D</button>
             </td>
         </tr>
     ) ;

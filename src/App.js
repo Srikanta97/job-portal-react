@@ -14,6 +14,7 @@ function App() {
     setInputSearch(e.target.value) ;
   }
 
+  // search results
   if(inputSearch.length > 0){
     tableContent = tableContent.filter((tableRow) => {
       return tableRow.company.toLocaleLowerCase().match(inputSearch.toLocaleLowerCase()) ;
