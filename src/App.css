@@ -1,5 +1,5 @@
 * {
-	margin: 0px;
+	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
@@ -69,7 +69,7 @@ form {
 
 button {
 	cursor: pointer;
-	transition: all 0.5s ease;
+	transition: all 0.5s ease 0.1s;
 	min-width: 30px;
 	color: white;
 }
